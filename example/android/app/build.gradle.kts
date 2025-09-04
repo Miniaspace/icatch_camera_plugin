@@ -10,11 +10,7 @@ android {
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"
     
-    repositories {
-        flatDir {
-            dirs("libs")
-        }
-    }
+    // Remove flatDir; repositories configured at project level
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -53,14 +49,9 @@ dependencies {
     implementation("se.emilsjolander:stickylistheaders:2.7.0")
     // Force Material Components to 1.10.0 to avoid AAPT2 compile issues with percentage dimen in 1.11.0
     implementation("com.google.android.material:material:1.10.0")
-    // Move libmediacomponent/basecomponent/baseutil AARs to plugin module to avoid duplication
-    // implementation(files("libs/libmediacomponent-debug_0.0.50.aar"))
-    // implementation(files("libs/basecomponent-debug_0.0.10.aar"))
-    // implementation(files("libs/baseutil-debug_0.0.12.aar"))
-    // implementation(files("libs/pulltorefreshlibrary.aar"))
-    // implementation(files("libs/status-bar-compat-0.7.aar"))
-    implementation(name = "pulltorefreshlibrary", ext = "aar")
-    implementation(name = "status-bar-compat-0.7", ext = "aar")
+    // Now use Maven coordinates for local artifacts
+    implementation("com.icatch.local:pulltorefreshlibrary:1.0.0")
+    implementation("com.icatch.local:status-bar-compat:0.7")
 }
 
 flutter {

@@ -2,6 +2,16 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url = uri("${rootDir.resolve("../..")}/android/maven-repo")
+            metadataSources {
+                artifact()
+                mavenPom()
+            }
+            content {
+                includeGroup("com.icatch.local")
+            }
+        }
     }
 }
 
