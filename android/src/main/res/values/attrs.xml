@@ -61,11 +61,6 @@
     <!-- Custom attributes for layout components -->
     <attr name="enable_download" format="boolean" />
     <attr name="enable_delete" format="boolean" />
-    <attr name="divider_color" format="color" />
-    <attr name="preview_render_type" format="enum">
-        <enum name="SDK_RENDER" value="0" />
-        <enum name="OPENGL_RENDER" value="1" />
-    </attr>
     <attr name="enable_checked" format="boolean" />
 
 </resources>
