@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="media_black">#000000</color>
+    <color name="media_gray">#808080</color>
+    <color name="media_half_transparent_grey">#aa202020</color>
+    <color name="media_lightgray">#D3D3D3</color>
+    <color name="media_primary">#de2f43</color>
+    <color name="media_red">#FF0000</color>
+    <color name="media_transparent">#00000000</color>
+    <color name="media_white">#FFFFFF</color>
+    <color name="meida_item_divider">#efefef</color>
+    <color name="primary_light">#CFD8DC</color>
+    <dimen name="bottom_bar_height">60</dimen>
+    <dimen name="media_space_12">12.0dip</dimen>
+    <item name="preview_controller" type="id"/>
+    <item name="preview_render_view" type="id"/>
+    <string name="media_dialog_cancel">Cancel</string>
+    <string name="media_dialog_connecting">Connecting...</string>
+    <string name="media_dialog_sure">Sure</string>
+    <string name="media_failed">Operation failed, please retry.</string>
+    <string name="media_selected_num">Selected($1$)</string>
+    <string name="media_text_downloaded">Downloaded</string>
+    <string name="media_text_operation_failed">Opertaion failed!</string>
+    <string name="media_text_previewing_by_other"> other users are previewing the camera, please try again later </string>
+    <string name="media_text_pull_up_refresh">Pull up to refresh...</string>
+    <string name="media_text_stream_launch_failed">Failed to launch stream!</string>
+    <string name="meida_text_album">Camera Roll</string>
+    <string name="meida_text_processing">Processing...</string>
+    <string name="meida_text_resolution_hd">Quality priority</string>
+    <string name="meida_text_resolution_smooth">Smooth priority</string>
+    <string name="meida_text_share">Share</string>
+    <declare-styleable name="CameraListView">
+        <attr format="reference" name="device_online_icon"/>
+        <attr format="reference" name="device_offline_icon"/>
+        <attr format="reference" name="message_icon"/>
+        <attr format="reference" name="file_icon"/>
+        <attr format="reference" name="share_icon"/>
+        <attr format="reference" name="delete_icon"/>
+        <attr format="reference" name="setting_icon"/>
+        <attr format="reference" name="defaule_preview_icon"/>
+        <attr format="reference" name="play_icon"/>
+        <attr format="dimension" name="control_icon_size"/>
+        <attr format="dimension" name="camera_name_size"/>
+        <attr format="color" name="camera_name_color"/>
+        <attr format="color" name="circular_color"/>
+        <attr format="dimension" name="preview_time_size"/>
+        <attr format="color" name="preview_time_color"/>
+    </declare-styleable>
+    <declare-styleable name="CommonItemLayout">
+        <attr format="dimension" name="item_padding_top_bottom"/>
+        <attr format="dimension" name="item_padding_left_right"/>
+        <attr format="dimension" name="icon_padding"/>
+        <attr format="dimension" name="icon_size"/>
+        <attr format="reference" name="divider_color"/>
+        <attr format="dimension" name="divider_higiht"/>
+        <attr format="dimension" name="title_size"/>
+        <attr format="reference" name="title_color"/>
+        <attr format="dimension" name="right_text_size"/>
+        <attr format="reference" name="right_text_color"/>
+        <attr format="reference" name="right_switch_color"/>
+    </declare-styleable>
+    <declare-styleable name="CommonItemView">
+        <attr format="reference" name="item_icon"/>
+        <attr format="boolean" name="show_icon"/>
+        <attr format="boolean" name="show_arrow_right"/>
+        <attr format="boolean" name="show_divider_top"/>
+        <attr format="boolean" name="show_divider_bottom"/>
+        <attr format="reference" name="text_content"/>
+        <attr format="reference" name="right_text_content"/>
+        <attr format="reference" name="right_text_background"/>
+        <attr format="boolean" name="show_right_text"/>
+        <attr format="boolean" name="show_right_switch"/>
+        <attr format="boolean" name="show_group"/>
+    </declare-styleable>
+    <declare-styleable name="FileListView">
+        <attr format="enum" name="layout_type">
+            <enum name="LIST" value="0"/>
+            <enum name="GRID" value="1"/>
+            <enum name="QUICK_LIST" value="2"/>
+        </attr>
+        <attr format="integer" name="grid_span_count"/>
+        <attr format="enum" name="refresh_mode">
+            <enum name="DISABLED" value="0"/>
+            <enum name="PULL_FROM_START" value="1"/>
+            <enum name="PULL_FROM_END" value="2"/>
+            <enum name="BOTH" value="3"/>
+        </attr>
+        <attr format="boolean" name="enable_checked"/>
+        <attr format="boolean" name="enable_download"/>
+        <attr format="boolean" name="enable_delete"/>
+        <attr format="reference" name="trigger_type_pir_img"/>
+        <attr format="reference" name="trigger_type_ring_img"/>
+        <attr format="reference" name="download_img"/>
+        <attr format="reference" name="delete_img"/>
+        <attr format="reference" name="checked_img"/>
+        <attr format="reference" name="unchecked_img"/>
+        <attr format="reference" name="item_layout"/>
+        <attr format="dimension" name="item_height"/>
+        <attr format="reference" name="item_background"/>
+        <attr format="dimension" name="edit_bar_height"/>
+        <attr format="reference" name="edit_bar_background"/>
+        <attr format="reference" name="edit_bar_delete_icon"/>
+        <attr format="reference" name="edit_bar_download_icon"/>
+        <attr format="reference" name="edit_bar_select_all_icon"/>
+        <attr format="reference" name="edit_bar_cancel_all_icon"/>
+        <attr format="integer" name="image_radius"/>
+    </declare-styleable>
+    <declare-styleable name="PreviewControlView">
+        <attr format="dimension" name="bar_height"/>
+        <attr format="reference" name="fullscreen_imv"/>
+    </declare-styleable>
+    <declare-styleable name="PreviewPlayerView">
+        <attr format="reference" name="perview_player_layout_id"/>
+        <attr format="reference" name="controller_layout_id"/>
+        <attr format="boolean" name="auto_hide_bar"/>
+        <attr format="boolean" name="always_hide_bar"/>
+        <attr format="enum" name="preview_render_type">
+            <enum name="SDK_RENDER" value="0"/>
+            <enum name="APP_RENDER" value="1"/>
+            <enum name="EXTERNAL_RENDER" value="2"/>
+        </attr>
+        <attr format="enum" name="preview_surface_type">
+            <enum name="SURFACE_VIEW" value="0"/>
+            <enum name="TEXTURE_VIEW" value="1"/>
+        </attr>
+        <attr format="boolean" name="preview_show_size_btn"/>
+        <attr format="reference" name="preview_topbar_background"/>
+        <attr format="reference" name="preview_buttombar_background"/>
+        <attr format="integer" name="preview_buttombar_visibility"/>
+        <attr format="integer" name="preview_topbar_visibility"/>
+        <attr format="integer" name="preview_topbar_height"/>
+        <attr format="integer" name="preview_buttombar_height"/>
+        <attr format="reference" name="preview_fullscreen_enter_icon"/>
+        <attr format="reference" name="preview_fullscreen_exit_icon"/>
+        <attr format="reference" name="preview_back_icon"/>
+        <attr format="reference" name="preview_title_color"/>
+        <attr format="reference|string" name="preview_title"/>
+        <attr format="integer" name="preview_fullScreen_img_btn_visibility"/>
+    </declare-styleable>
+    <declare-styleable name="VideoPlayerView">
+        <attr format="reference" name="video_controller_layout_id"/>
+        <attr format="boolean" name="video_auto_hide_bar"/>
+        <attr format="boolean" name="video_always_hide_bar"/>
+        <attr format="boolean" name="video_always_hide_top_bar"/>
+        <attr format="enum" name="video_render_type">
+            <enum name="SDK_RENDER" value="0"/>
+            <enum name="APP_RENDER" value="1"/>
+        </attr>
+        <attr format="enum" name="video_surface_type">
+            <enum name="SURFACE_VIEW" value="0"/>
+            <enum name="TEXTURE_VIEW" value="1"/>
+        </attr>
+        <attr format="reference" name="video_topbar_background"/>
+        <attr format="reference" name="video_buttombar_background"/>
+        <attr format="integer" name="video_buttombar_visibility"/>
+        <attr format="integer" name="video_topbar_visibility"/>
+        <attr format="integer" name="video_topbar_height"/>
+        <attr format="integer" name="video_buttombar_height"/>
+        <attr format="reference" name="video_fullscreen_enter_icon"/>
+        <attr format="reference" name="video_fullscreen_exit_icon"/>
+        <attr format="reference" name="video_back_icon"/>
+        <attr format="reference" name="video_title_color"/>
+        <attr format="reference|string" name="video_title"/>
+        <attr format="reference" name="video_play_icon"/>
+        <attr format="reference" name="video_circe_play_icon"/>
+        <attr format="reference" name="video_pause_icon"/>
+        <attr format="reference" name="video_download_icon"/>
+        <attr format="reference" name="video_delete_icon"/>
+        <attr format="reference" name="video_time_color"/>
+        <attr format="reference" name="video_seekbar_drawable"/>
+        <attr format="integer" name="video_download_btn_visibility"/>
+        <attr format="integer" name="video_delete_btn_visibility"/>
+        <attr format="integer" name="video_fullScreen_img_btn_visibility"/>
+    </declare-styleable>
+</resources>

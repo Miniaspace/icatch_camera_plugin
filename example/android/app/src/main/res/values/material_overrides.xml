@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Workaround: AAPT2 fails when encountering percentage values in <dimen> on some Windows setups.
+         Override Material3 m3_fab_corner_size (originally "30%") with a fixed dp value. -->
+    <dimen name="m3_fab_corner_size">16dp</dimen>
+    
+    <!-- Workaround: Override appcompat percent dimens with fixed dp values to avoid AAPT2 issues on Windows. -->
+    <!-- Original values from libraries use percentage like 80%, 100%, 65%, 95%, which may trigger the issue. -->
+    <dimen name="abc_dialog_fixed_height_major">320dp</dimen>
+    <dimen name="abc_dialog_fixed_height_minor">360dp</dimen>
+    <dimen name="abc_dialog_min_width_major">320dp</dimen>
+    <dimen name="abc_dialog_min_width_minor">280dp</dimen>
+</resources>

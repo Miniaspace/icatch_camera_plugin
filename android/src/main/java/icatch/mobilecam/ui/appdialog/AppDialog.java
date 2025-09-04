@@ -1,0 +1,199 @@
+package com.icatch.mobilecam.ui.appdialog;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+
+import com.icatch.mobilecam.data.GlobalApp.ExitApp;
+import com.icatch.mobilecam.Log.AppLog;
+import com.icatch.mobilecam.R;
+
+/**
+ * Created by yh.zhang C001012 on 2015/10/15:13:28.
+ * Fucntion:
+ */
+public class AppDialog {
+    private final static String TAG ="AppDialog";
+    private static boolean needShown = true;
+    private static AlertDialog dialog;
+
+    public void showDialog(String title,String message,boolean cancelable){
+        //show a dialog
+    }
+
+    public static void showDialogQuit(final Context context, final int messageID){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.warning).setTitle(R.string.title_warning).setMessage(messageID);
+        builder.setCancelable(false);
+        builder.setPositiveButton(R.string.dialog_btn_exit, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AppLog.i(TAG, "ExitApp because of "+context.getResources().getString(messageID));
+                ExitApp.getInstance().exit();
+            }
+        });
+        builder.create().show();
+    }
+
+    public static void showDialogQuit(final Context context, final String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.warning).setTitle(R.string.title_warning).setMessage(message);
+        builder.setCancelable(false);
+        builder.setPositiveButton(R.string.dialog_btn_exit, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AppLog.i(TAG, "ExitApp because of "+message);
+                ExitApp.getInstance().exit();
+            }
+        });
+        builder.create().show();
+    }
+
+    public static void showDialogWarn(final Context context, String message){
+        closeDialog();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.warning).setTitle(R.string.title_warning).setMessage(message);
+        builder.setCancelable(true);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog = builder.create();
+        dialog.show();
+    }
+
+    public static void showDialogWarn(final Context context, int messageID){
+        closeDialog();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.warning).setTitle(R.string.title_warning).setMessage(messageID);
+        builder.setCancelable(true);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        dialog = builder.create();
+        dialog.show();
+    }
+
+    public static void showDialogWarn(final Context context, int messageID,boolean canelable,final OnDialogSureClickListener listener){
+        closeDialog();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.warning).setTitle(R.string.title_warning).setMessage(messageID);
+        builder.setCancelable(canelable);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                if(listener != null){
+                    listener.onSure();
+                }
+            }
+        });
+        dialog = builder.create();
+        dialog.show();
+    }
+
+    public static void showConectFailureWarning(final Context context){
+//        if(needShown == false){
+//            return;
+//        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.warning).setTitle(R.string.title_warning).setMessage(R.string.dialog_timeout);
+        builder.setPositiveButton(R.string.dialog_btn_exit, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                closeDialog();
+                ExitApp.getInstance().finishAllActivity();
+            }
+        });
+        builder.setCancelable(false);
+//        builder.setNegativeButton(R.string.dialog_btn_reconnect, new DialogInterface.OnClickListener() {
+//
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                needShown = true;
+//            }
+//        });
+        builder.create().show();
+    }
+
+    public static void showLowBatteryWarning(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setIcon(R.drawable.warning).setTitle(R.string.title_warning).setMessage(R.string.low_battery);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    public static void showAPPVersionDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String appVersion = "";
+        if (packageInfo != null) {
+            appVersion = packageInfo.versionName;
+        }
+        builder.setTitle(R.string.app_name).setMessage("App version : " + appVersion);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    public static void closeDialog(){
+        if(dialog == null){
+            return;
+        }
+        try{
+            Activity activity = dialog.getOwnerActivity();
+            if(activity!= null
+                    &&!activity.isFinishing()
+                    && dialog!=null
+                    && dialog.isShowing()) {
+                dialog.dismiss();
+                dialog = null;
+            }
+        }catch (Exception e) {
+            AppLog.d(TAG,"closeDialog Exception"+e.getMessage());
+        }
+
+    }
+
+    public interface OnDialogButtonClickListener {
+        void onCancel();
+
+        void onSure();
+    }
+
+    public interface OnDialogSureClickListener {
+        void onSure();
+    }
+
+}

@@ -1,0 +1,26 @@
+package com.icatch.mobilecam.ui.Interface;
+
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+
+public interface LocalPhotoPbView {
+    void setViewPagerAdapter(PagerAdapter adapter);
+    void setIndexInfoTxv(String indexInfo);
+    void setViewPagerCurrentItem(int position);
+    void setOnPageChangeListener(ViewPager.OnPageChangeListener listener);
+    int getViewPagerCurrentItem();
+    int getTopBarVisibility();
+
+    void setTopBarVisibility(int visibility);
+
+    void setBottomBarVisibility(int visibility);
+
+    void setViewPagerVisibility(int visibility);
+    void setSurfaceviewVisibility(int visibility);
+
+    void setPanoramaTypeBtnImg(int resId);
+
+    void setPanoramaTypeBtnVisibility(int visibility);
+}
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/white"
+        android:dividerHeight="1px">
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+    <LinearLayout
+        android:id="@+id/edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:padding="10dp"
+        >
+
+        <ImageButton
+            android:id="@+id/action_select"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/meida_selector_primary"
+            android:padding="6dp"
+            android:src="@drawable/media_unselect"
+            android:visibility="visible"/>
+
+        <ImageButton
+            android:id="@+id/action_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/meida_selector_primary"
+            android:padding="6dp"
+            android:src="@drawable/meida_delete_white_24dp"/>
+
+        <ImageButton
+            android:id="@+id/action_download"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/meida_selector_primary"
+            android:padding="6dp"
+            android:src="@drawable/meida_file_download_white_24dp"/>
+
+        <TextView
+            android:id="@+id/info_selected_num"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Selected(0)"
+            android:textColor="@color/white"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+
+</LinearLayout>
