@@ -57,8 +57,10 @@ dependencies {
     // implementation(files("libs/libmediacomponent-debug_0.0.50.aar"))
     // implementation(files("libs/basecomponent-debug_0.0.10.aar"))
     // implementation(files("libs/baseutil-debug_0.0.12.aar"))
-    implementation(files("libs/pulltorefreshlibrary.aar"))
-    implementation(files("libs/status-bar-compat-0.7.aar"))
+    // implementation(files("libs/pulltorefreshlibrary.aar"))
+    // implementation(files("libs/status-bar-compat-0.7.aar"))
+    implementation(name = "pulltorefreshlibrary", ext = "aar")
+    implementation(name = "status-bar-compat-0.7", ext = "aar")
 }
 
 flutter {
