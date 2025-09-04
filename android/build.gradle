@@ -89,8 +89,10 @@ android {
         implementation files('libs/google-android-oauth.jar')
         // implementation files('libs/httpagent-1.0.16.pom')
         // Re-enabled AAR dependencies - required for compilation
-        api files('libs/basecomponent-debug_0.0.10.aar')
-        api files('libs/baseutil-debug_0.0.12.aar')
+-        api files('libs/basecomponent-debug_0.0.10.aar')
+-        api files('libs/baseutil-debug_0.0.12.aar')
++        api(name: 'basecomponent-debug_0.0.10', ext: 'aar')
++        api(name: 'baseutil-debug_0.0.12', ext: 'aar')
         // api files('libs/pulltorefreshlibrary.aar')
         // api files('libs/status-bar-compat-0.7.aar')
         implementation files('libs/ICatchtekVR.jar')
@@ -98,7 +100,8 @@ android {
         implementation files('libs/ICatchtekControl.jar')
         
         // Add libmediacomponent AAR in plugin module instead of app to provide missing interfaces
-        api files('libs/libmediacomponent-debug_0.0.50.aar')
+-        api files('libs/libmediacomponent-debug_0.0.50.aar')
++        api(name: 'libmediacomponent-debug_0.0.50', ext: 'aar')
         
         implementation 'androidx.appcompat:appcompat:1.6.1'
         implementation 'androidx.recyclerview:recyclerview:1.3.2'
